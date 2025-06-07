@@ -1,0 +1,117 @@
+import logo from './logo.svg';
+import './App.css';
+import {useState} from 'react';
+
+// const input = [{
+//    name: "Src",
+//    files : [
+//       { name : "App.css"},
+//       { name : "App.test.js"}
+//    ]
+//    }, 
+//  {
+//   name: "Readme"
+//  }
+
+// ];
+
+function App() {
+  const [filename, setFileName] = useState("");
+  const [input, setInput] = useState(
+    [{
+      name: "Src",
+      files : [
+         { name : "App.css"},
+         { name : "App.test.js"}
+      ]
+      }, 
+    {
+     name: "Readme"
+    },
+    {
+      name: "Src1",
+      files : [
+         { name : "App1.css"},
+         { name : "App1.test.js"},
+         { name : "App3.test.js"},
+         { name : "App4.test.js"}
+      ]
+      }, 
+   
+   ]
+  )
+
+  const onChangeHandler = (e) => {
+      setFileName(e.target.value);
+  }
+
+  const addFiles = (name) => {
+    //  input.forEach((data)=> {
+    //      if(data.name === name){
+    //          input[name].files.push("added")
+    //      }
+    //  })
+      const _input = [...input];
+      const index = input.findIndex((data)=> data.name == name);
+      _input[index].files.push({name: filename});
+      setFileName("")
+      setInput(_input)
+  }
+  return (
+    <div className="App" style={{display: "flex", flexDirection: "column"}}>
+      {/* <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React new
+        </a>
+      </header> */}
+      {
+        input.map((data)=>{
+            if(data.files){
+               return(<>
+               <div>{`> ${data.name}`}
+                <button style={{marginLeft: "8px"}} onClick={()=> addFiles(data.name)}> Add File </button>
+                 <input type="text" style={{marginLeft: "8px"}} onChange={onChangeHandler} value={filename}/>
+               </div>
+                {data.files.map((d)=> {
+                    return (
+                      <div style={{marginLeft: "32px"}} key="name">
+                         {`${d.name}`}
+                      </div>
+                    )
+                })}
+               </>
+               )
+            }
+            else{
+               return(<div> {data.name} </div>)
+            }
+        })
+      }
+      {/* <div>
+          {">src"}
+        <div style={{paddingLeft: "24px"}}>app.js</div>
+        <div>app.js</div>
+        <div>app.js</div>
+      </div> */}
+    </div>
+  );
+}
+
+const Temp = (prop) => {
+    const {data} = prop;
+    return (
+      <>
+        {data}
+      </>
+    )
+}
+export default App;
