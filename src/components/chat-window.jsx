@@ -1,16 +1,8 @@
+import "./chat.scss";
 import { useState } from "react";
-
+import { initialMessages } from "./constants";
 export const ChatWindow = (props) => {
-    const initialMessages = {
-        Alice : [
-            { text : "Hey there i am Alice!", sender: "Alice"},
-            { text : "Hey Alice", sender: "Me"}
-        ],
-        BOB: [
-            { text : "Hey i am BOB !", sender: "BOB"},
-            { text : "Hey BOB", sender: "Me"}
-        ]
-    }
+    
     const {selectedFriend} = props;
     const [messages, setMessages] = useState(initialMessages);
     const [text, setText] = useState("");

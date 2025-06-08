@@ -1,4 +1,6 @@
-export const FriendList = (props) => {
+import "./chat.scss";
+
+export const ChatList = (props) => {
     const { list, selectedFriend, setSelectedFriend } = props;
     return(
         <div className="list">
