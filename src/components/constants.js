@@ -8,3 +8,8 @@ export const initialMessages = {
             { text : "Hey BOB", sender: "Me"}
         ]
 }
+
+export const friendsList = [
+    {name: "Alice"}, 
+    {name: "BOB"}
+]

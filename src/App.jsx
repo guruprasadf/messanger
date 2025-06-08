@@ -7,7 +7,6 @@ export const App = () => {
     return (
         <div className="chatContianer">
             <ChatList 
-                list={[{name: "Alice"}, {name: "BOB"}]} 
                 setSelectedFriend={setSelectedFriend}
                 selectedFriend={selectedFriend}
             />
