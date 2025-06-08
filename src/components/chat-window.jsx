@@ -1,6 +1,7 @@
 import "./chat.scss";
 import { useState } from "react";
 import { initialMessages } from "./constants";
+
 export const ChatWindow = (props) => {
     
     const {selectedFriend} = props;

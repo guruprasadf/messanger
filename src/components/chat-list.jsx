@@ -1,5 +1,6 @@
 import "./chat.scss";
 import { friendsList } from "./constants";
+
 export const ChatList = (props) => {
     const { selectedFriend, setSelectedFriend } = props;
     return(
